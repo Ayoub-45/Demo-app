@@ -1,0 +1,20 @@
+{
+  "name": "library-api-spec",
+  "version": "v0.0.1",
+  "description": "This is an API for a library project that will be used in our SLO course.",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.2.3"
+  }
+}

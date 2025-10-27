@@ -1,0 +1,80 @@
+openapi: 3.0.4
+info:
+  title: Library API Spec
+  description: This is an API for a library project that will be used in our SLO course.
+  version: v0.0.1
+servers:
+- url: /
+paths:
+  /v1/book:
+    get:
+      tags:
+      - Book
+      operationId: ListBooks
+      responses:
+        "200":
+          description: A successful response and a list of books is returned.
+      x-swagger-router-controller: Book
+    post:
+      tags:
+      - Book
+      operationId: CreateBook
+      parameters: []
+      responses:
+        "200":
+          description: A successful response and a book is created.
+        "403":
+          description: Another book with the same ID exists
+      x-swagger-router-controller: Book
+  /v1/book/{bookID}:
+    get:
+      tags:
+      - Book
+      operationId: GetBookById
+      parameters:
+      - name: bookID
+        in: path
+        description: The unique identifier of the book to retrieve.
+        required: true
+        style: simple
+        explode: false
+      responses:
+        "200":
+          description: Book details retrieved successfully.
+        "404":
+          description: Book not found.
+      x-swagger-router-controller: Book
+    put:
+      tags:
+      - Book
+      operationId: UpdateBook
+      parameters:
+      - name: bookID
+        in: path
+        description: The unique identifier of the book to update.
+        required: true
+        style: simple
+        explode: false
+      responses:
+        "200":
+          description: Book updated successfully.
+        "400":
+          description: Invalid input provided.
+        "404":
+          description: Book not found.
+      x-swagger-router-controller: Book
+    delete:
+      tags:
+      - Book
+      operationId: DeleteBook
+      parameters:
+      - name: bookID
+        in: path
+        required: true
+        style: simple
+        explode: false
+      responses:
+        "200":
+          description: A successful response and the book is deleted.
+      x-swagger-router-controller: Book
+components: {}
